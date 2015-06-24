@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<style type="text/css">
+		#txt{
+
+   			font-size:200px;
+   			color:#00aaff;
+   			text-shadow:4px 4px 4px pink;
+  			}
+  		body {background-color: grey;
+
+  		}
+
+		</style>
+
+		<script type="text/javascript">
+			function startTime() {
+				var today=new Date();
+				var h =today.getHours() ;
+				var m =today.getMinutes() ;
+				var s =today.getSeconds() ;
+				var ms =today.getMilliseconds() ;
+				var ap ="am" ;
+
+				m =checkTime (m) ;
+				s =checkTime (s) ;
+				ms =checkTime (ms) ;
+
+				//to add AM or PM after time
+
+				if(h>11) ap="PM";
+				if(h>12) h=h-12;
+				if(h==0) h=12;
+				
+
+				document.getElementById('txt').innerHTML= h+":"+m+":"+s+":"+ms ;
+				var t = setTimeout(function() {startTime()},1 )
+				
+				}
+
+			function checkTime(i) {
+				if (i<10) {i= "0" + i} ; 
+				return i ;
+				
+			}
+		</script>
+	</head>
+	
+	<body onload="startTime()">
+		<div id="txt"></div>
+
+	</body>
+
+</html>
